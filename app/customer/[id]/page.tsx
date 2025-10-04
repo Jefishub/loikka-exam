@@ -31,7 +31,7 @@ export default async function CustomerPage({
         : (
             <div>
                 <h1>{id}</h1>
-                <Products />
+                <Products customerNumber={id} />
             </div>
         )
 }
