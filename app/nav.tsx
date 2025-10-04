@@ -13,11 +13,17 @@ const getStatusText = (status: string) => {
     }
 };
 
+const getTotalAmountText = (amount: number) => {
+    return amount
+        .toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        + " €";
+};
+
 const Navbar = () => {
     const { customer, selectedProducts } = useContext(BakeryContext);
     //Get values from context or props later
     const companyName = "Ab Yritys Oy";
-    const totalAmount = "X XXX,XX€";
+    const totalAmount = selectedProducts.reduce((sum, product) => sum + product.amount, 0);
     const orderStatus = customer?.data[0]?.status ? getStatusText(customer.data[0].status) : "Unknown";
 
     return (
@@ -27,7 +33,7 @@ const Navbar = () => {
             </div>
             {customer.data.length > 0 && <div className='flex gap-2'>
                 <div>
-                    <div className='text-2xl font-bold'>{totalAmount}</div>
+                    <div className='text-2xl font-bold'>{getTotalAmountText(totalAmount)}</div>
                     <div className='flex w-full justify-end'>{orderStatus}</div>
                 </div>
                 <div>
