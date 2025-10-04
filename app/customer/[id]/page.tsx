@@ -24,13 +24,11 @@ export default async function CustomerPage({
 }) {
     const { id } = await params
     const customer: CustomerStatus = await getCustomer(id)
-    console.log(customer)
 
     return customer.data.length === 0
         ? <div>Customer {id} not found</div>
         : (
             <div>
-                <h1>{id}</h1>
                 <Products customerNumber={id} />
             </div>
         )

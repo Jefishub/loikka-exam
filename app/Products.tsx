@@ -113,11 +113,11 @@ const Products = ({ customerNumber }: { customerNumber: number }) => {
             </div>
             <div className="flex justify-between items-center mt-4">
                 <div className="flex gap-2">
-                    <button className="bg-blue-500 text-white p-2 rounded mt-4 w-20" onClick={prevAction}>Previous</button>
-                    <button className="bg-blue-500 text-white p-2 rounded mt-4 w-20" onClick={nextAction}>Next</button>
+                    <button className="bg-blue-500 text-white p-2 rounded mt-4 w-28" onClick={prevAction}>{"<< Previous"}</button>
+                    <button className="bg-blue-500 text-white p-2 rounded mt-4 w-28" onClick={nextAction}>{"Next >>"}</button>
                 </div>
-                <div>page {currentPage} / {maxPages}</div>
-                <div>Total {maxItems} products</div>
+                <div className='font-bold'>page {currentPage} / {maxPages}</div>
+                <div className='font-bold'>Total {maxItems} products</div>
             </div>
         </div>
     );
