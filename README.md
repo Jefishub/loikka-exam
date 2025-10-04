@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Objective
 
-## Getting Started
+Create a React frontend and use the provided API. The frontend must implement the features below.
 
-First, run the development server:
+## Page header
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Show the text "Ab Yritys Oy" aligned to the left of the header section.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Landing page
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- A form input for "Customer Number".
+- A "Continue" button.
+- Show an error message if the customer number does not result in anything.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Order page
 
-## Learn More
+### Header
 
-To learn more about Next.js, take a look at the following resources:
+- Show the text "Total: X XXX,XX €" — the formatted total sum of the selected products using a space as the thousand separator and a comma as the decimal separator.
+- An "Order" button on the right side of the section.
+- The "Order" button must be disabled if the order status is "ordered".
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Product listing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Show 6 selectable product cards per page.
+- Each card must contain: image, name, description, rating (stars X out of 5), price (format: "XX,XX €"), and a ✓ check mark indicating selection.
+- In the top-right corner of the image, show:
+  - If a product has an index divisible by 3: 👍 (thumbs up).
+  - If a product has an index divisible by 5: 💖 (sparkling heart).
+  - If a product has an index divisible by 3 and 5: 😍 (heart eyes).
+  - Else show a number (index + 1), for example "#1" for the first card.
 
-## Deploy on Vercel
+### Pagination
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Buttons: "Previous" and "Next".
+- A text indicating the total amount of products and pages: "XX products, page X out of Y".
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Submission feedback
+
+- Show an error message if placing the order fails.
+- Show a success message if placing the order succeeds.
+
+### Order status and restrictions
+
+- Show the order status ("not ordered" or "ordered") and the selected products in the same view.
+- If the order status is "ordered", the customer cannot change the selected products or place a new order.
